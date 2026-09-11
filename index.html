@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>Assessment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(229, 230, 231);
+            margin: 0 2rem 1rem 2rem;
+        }
+
+        .container-fluid {
+            width: 100%;
+            min-width: 100%;
+            margin: 0 0 16rem 0;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .navbar-fluid {
+            width: 100%;
+            left: 0;
+            padding: 0.5rem 1rem;
+            background-color: transparent;
+            border-bottom: 1px dotted black;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .content {
+            gap: 1rem;
+        }
+
+        /* -------------  top arow ---------------------- */
+        .Arow-home {
+            position: fixed;
+            height: 30px;
+            right: 0;
+            top: 87%;
+            right: 1%;
+            width: 31px;
+            backdrop-filter: blur(8px);
+            padding: 3px 2px 5px 4px;
+            border-radius: 50%;
+            border: 1px solid #cccccc;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .Arow-home:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* ------------------- Home page ----------------------- */
+        .home-content {
+            min-height: 70vh;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .H-InBox {
+            margin: 0 0 20px 0;
+            max-height: 530px;
+            width: 306px;
+            /* background-color: antiquewhite; */
+        }
+
+        .display-4 {
+            font-size: 4.5rem;
+            font-weight: 600;
+        }
+
+        .H-InBox>p {
+            font-size: 20px;
+        }
+
+        .beginer {
+            background-color: rgb(220 181 243);
+            height: 48px;
+            width: 261px;
+            margin: 10px;
+            color: white;
+            border-radius: 54px 54px;
+            border: 1px solid rgb(203, 241, 255);
+            color: rgb(120 2 170);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ----------- Right side Box 2 ------------- */
+        .H-InBox-2 {
+            height: 275px;
+            width: 440px;
+            border-radius: 28px;
+            background-color: rgb(113, 65, 255);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .round1 {
+            height: 200px;
+            width: 200px;
+            background-color: rgb(162, 92, 255);
+            border-radius: 50%;
+            position: absolute;
+            top: 9%;
+            right: -21%;
+            transform: translate(-50%, -50%);
+        }
+
+        .round2 {
+            height: 260px;
+            width: 260px;
+            background-color: rgb(162, 92, 255);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -47%;
+            left: 7%;
+            transform: translate(-50%, -50%);
+        }
+
+        .varBox {
+            z-index: 1;
+            padding: 1rem;
+            height: 156px;
+            width: 368px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            position: absolute;
+            rotate: -7deg;
+            font-family: monospace;
+        }
+
+        /* ------------------- Learn Section --------------------- */
+        .LearnSection {
+            min-height: vh;
+            border-radius: 20px;
+            width: 100%;
+            /* background-color: rgb(207, 207, 207); */
+        }
+
+        .Learn-Content {
+            /* background-color: rgb(255, 255, 255); */
+            width: 100%;
+        }
+
+        .IdeaBox {
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .IdeaBox>div {
+            max-height: 202px;
+            padding: 24px;
+            width: 460px;
+            margin-top: 10px;
+            border: 1px solid rgb(155, 155, 155);
+            box-shadow: 4px 4px 4px rgba(113, 113, 113, 0.25);
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .IdeaBox>div:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        .IdeaBox>p {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        /* --------------- How it works --------------- */
+        .HIW-box {
+            background-color: white;
+            width: 100%;
+            border-radius: 20px;
+            border-radius: 20px;
+        }
+
+        .HIW-box>div {
+            height: 214px;
+            padding: 24px;
+            width: 304px;
+            margin: 10px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            border: 1px solid rgb(81, 81, 81);
+            box-shadow: 4px 4px 4px rgba(113, 113, 113, 0.25);
+            transition: width 0.5s ease-in-out;
+
+        }
+
+        .HIW-box>div:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+
+        }
+
+        .In-round {
+            height: 50px;
+            width: 50px;
+            background-color: rgb(113, 65, 255);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .In-round>h2 {
+            color: white;
+            font-size: 30px;
+        }
+
+        /* ----------------------- work Example --------------------- */
+        .WorkEx {
+            min-height: 10rem;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        #Operator {
+            width: 24px;
+            padding: 1px 0 2px 6px;
+        }
+
+        #player-Score,
+        #points {
+            width: 70px;
+            padding: 1px 0 2px 6px;
+
+        }
+
+        .codeSection {
+            color: white;
+            min-height: 100px;
+            width: 100%;
+            gap: 17px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 20px;
+            border: 1px solid rgb(81, 81, 81);
+            box-shadow: 4px 4px 4px rgba(11, 10, 10, 0.25);
+            font-family: monospace;
+        }
+
+        .QuickTip {
+            border-left: 5px solid rgb(147, 15, 15);
+            padding: 14px 9px 0 15px;
+            background-color: aqua;
+        }
+
+        /* ------------------- Try It YourSelf ------------- */
+        .TryItYourSelf {
+            min-height: 319px;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .InputSection>input {
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid rgb(0, 0, 0);
+            padding: 0 10px;
+            /* border: none; */
+            background-color: white;
+        }
+
+        .knowledge {
+            min-height: 10rem;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .line {
+            border-radius: 20px;
+            height: 0.7rem;
+            width: 100%;
+        }
+
+        .In-line {
+            height: 100%;
+            width: 0%;
+            border-radius: 10px;
+            background-color: blueviolet;
+        }
+
+        .Q-one,
+        .Q-two,
+        .Q-three {
+            width: 100%;
+            margin: 1rem 0;
+            border-top: 1px solid gray;
+            /* background-color: antiquewhite; */
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                gap: 0.31rem;
+            }
+
+            .home-content {
+                min-height: 100vh;
+            }
+
+            .display-4 {
+                font-size: 3.5rem;
+            }
+
+            .varBox {
+                width: 249px;
+            }
+
+            .H-InBox-2 {
+                height: 248px;
+                width: 306px;
+            }
+
+        }
+
+        @media (max-width: 978px) {
+            .display-4 {
+                font-size: 3.5rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+        <nav id="home" id="home1" class="navbar-fluid d-flex justify-content-between align-items-center">
+            <div class="title">Assessment</div>
+            <div class="content d-flex justify-content-start align-items-start g-4">
+                <span><a href="#home"><b>Home</b></a></span>
+                <span><a href="#section1"><b>Learn</b></a></span>
+                <span><a href="#section2"><b>Practice</b></a></span>
+                <span><a href="#section3"><b>Quiz</b></a></span>
+
+            </div>
+        </nav>
+        <div class="Arow-home"> <a href="#home"><i class="fa-solid fa-arrow-up"></i></a></div>
+        <!-- ------------------ Home section --------------------- -->
+        <div class="home-content d-flex justify-content-evenly align-items-center">
+            <div class="H-InBox">
+                <div class="beginer">
+                    <h4>JavaScript . Beginner</h4>
+                </div>
+
+                <h1 class="display-4">What is a Variable?</h1>
+
+                <p>
+                    Think of a variable as a labelled box where your program can keep information and use it later.
+                </p>
+                <div class="stl">
+                    <a href="#section1" class="btn btn-primary">Start the lesson <span><i
+                                class="fa-solid fa-arrow-down"></i></span></a>
+                </div>
+            </div>
+            <!-- ------------------------------------------- -->
+            <div class="H-InBox-2 d-flex justify-content-center align-items-center">
+                <div class="round1"></div>
+                <div class="round2"></div>
+                <!-- ------ Contents -------- -->
+
+                <div class="varBox d-flex justify-content-between align-items-start flex-column">
+                    <h6><span class="text-primary">let</span> score = <span class="text-primary">100</span></h6>
+                    <div class="In-varbox">
+                        <p><b>📦 score</b></p>
+                        <p> contains → 100</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--------------------- Learn Section -------------------------->
+        <h1 class="idia" id="section1">The simple idea</h1>
+        <div class="LearnSection d-flex justify-content-start align-items-start flex-wrap ">
+            <div class="Learn-Content">
+                <div class="IdeaBox d-flex justify-content-evenly align-items-start flex-wrap g-4">
+                    <div class="d-flex flex-column align-items-start">
+                        <span><i class="fa-solid fa-box-open"></i><b> A labelled box</b></span>
+                        <p>A variable gives a name to a piece of information. Instead of remembering the value itself,
+                            your code can remember its name.</p>
+                    </div>
+                    <div class="d-flex flex-column align-items-start">
+                        <span><i class="fa-solid fa-code-compare"></i><b> Values can change</b></span>
+                        <p>Some variables can hold a new value later. This is useful for things like game scores,
+                            usernames, counters and shopping-cart totals.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!------------------ How it works------------- -->
+        <h1 class="H-works">How Variables Work</h1>
+
+        <div class="HIW-box d-flex justify-content-evenly align-items-center flex-wrap p-4">
+            <div class="d-flex justify-content-evenly align-items-start flex-column ">
+                <div class="In-round">
+                    <h2>1</h2>
+                </div>
+                <h3>Name it</h3>
+                <p>Choose a clear name such as <span>score.</span></p>
+            </div>
+            <div>
+                <div class="In-round">
+                    <h2>2</h2>
+                </div>
+                <h3>Give it a value</h3>
+                <p>Put information inside with =.</p>
+            </div>
+            <div>
+                <div class="In-round d-flex justify-content-center align-items-center">
+                    <h2>3</h2>
+                </div>
+                <h3>Use it</h3>
+                <p>Write the variable name whenever you need that information.</p>
+            </div>
+        </div>
+
+
+        <!--------------------- Work Example --------------------------->
+        <h2>Work Example</h2>
+        <div id="WorkEx" class="WorkEx d-flex justify-content-start align-items-start flex-wrap flex-column p-4 g-7">
+
+            <div class="codeSection d-flex justify-content-start align-items-start flex-column flex-wrap p-4">
+
+                <div>
+                    <h6> // Store a player's score</h6>
+                    <h6><span class="text-primary">let</span> score = <span class="text-success">
+                            <input type="number" id="player-Score" placeholder="Score"></span>;
+                    </h6>
+                </div>
+
+                <div>
+                    <h6>// Add 5 points</h6>
+                    <h6> score = score <input type="text" id="Operator">
+
+                        <span class="text-success">
+                            <input type="number" id="points" placeholder="Points" />
+                        </span>;
+                    </h6>
+                </div>
+
+                <h6>console.log(score); // <span id="playerScore"></span></h6>
+                <button class="btn btn-primary" onclick="PlayerScore()">Check Points</button>
+
+            </div>
+            <div class="WhatHap">
+                <p><span><b>What Happens? : </b></span>First, score stored 10. Then the program calculated 10 + 5 and
+                    stored the new value, 15</p>
+            </div>
+            <div class="QuickTip">
+                <p><span><b>Quick Tips : </b></span>Use names that explain what the data means. playerScore is easier to
+                    understand than x.</p>
+            </div>
+        </div>
+        <!-- ------------------ Ty It your self --------------------- -->
+        <h1 id="section2">🎮 Try It Yourself</h1>
+        <div class="TryItYourSelf d-flex justify-content-evenly align-items-start flex-column flex-wrap p-4 g-3">
+            <h4>Challenge: Predict the final score</h4>
+            <p>A game starts with 20 points. The player earns 10 more, then loses 5. What should score contain at the
+                end?</p>
+            <div class="InputSection">
+                <span>Your Answer:</span>
+                <input id="num" type="number" max="50" placeholder="Enter your answer here" />
+                <button class="btn btn-primary" onclick=Result()>Check Answer</button>
+                <h5 id="Answer">Your Answer:</h5>
+
+            </div>
+        </div>
+        <!-- ------------------ Knowledge Check --------------------- -->
+        <h1 id="section3">🧠 Knowledge check</h1>
+        <div class="knowledge d-flex justify-content-start align-items-start flex-column flex-wrap p-4 g-6">
+            <div class="line">
+                <div id="line" class="In-line"></div>
+            </div>
+            <div class="Q-one">
+
+                <div class="Q-one d-flex justify-content-start align-items-start flex-column flex-wrap p-4 g-3">
+                    <h4> 1. What is a variable mainly used for?</h4>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1a" value="a">
+                        <label for="q1a">To store information that can be used later</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1b" value="b">
+                        <label for="q1b">To create a new programming language</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1c" value="c">
+                        <label for="q1c">To make the program run faster</label>
+                    </div>
+                </div>
+                <div class="Q-two d-flex justify-content-start align-items-start flex-column flex-wrap p-4 g-3">
+                    <h4>2. What value does score contain after this?</h4>
+                    <div class="codeSection d-flex justify-content-start align-itmes-start flex-column p-3">
+                        <h6>let score = 8;</h6>
+                        <h6>score = score + 2;</h6>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2a" value="a">
+                        <label for="q2a">10</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2b" value="b">
+                        <label for="q2b">15</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2c" value="c">
+                        <label for="q2c">20</label>
+                    </div>
+                </div>
+                <div class="Q-three d-flex justify-content-start align-items-start flex-column flex-wrap p-4 g-3">
+                    <h4>3. Which is the clearest variable name?</h4>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3a" value="a">
+                            <label for="q3a">var myVariable = 10;</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3b" value="b">
+                            <label for="q3b">variable myVariable = 10;</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3c" value="c">
+                            <label for="q3c">myVariable := 10;</label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick=checkAnswer()> Check Your SCore </button>
+                <h5 id="SCore">Your SCore is : </h5>
+
+            </div>
+        </div>
+</body>
+<script>
+    const num = document.getElementById("num");
+
+
+    function Result() {
+        if (num.value == 25) {
+            document.getElementById("Answer").innerText = "Your Answer is Correct 👌👌✅✅";
+        }
+        else if (num.value == "") {
+            document.getElementById("Answer").innerText = "Enter Your Answer 🤷‍♂️"
+        }
+        else {
+            document.getElementById("Answer").innerText = "Your Answer is Wrong ❌❌";
+        }
+    }
+    // --------------- Choice Correct Answer -----------
+
+    // let q1 = document.querySelector('input[name="q1"]:checked');
+
+    let line = document.getElementById("line");
+
+    function checkAnswer() {
+        let q1 = document.querySelector('input[name="q1"]:checked');
+        let q2 = document.querySelector('input[name="q2"]:checked');
+        let q3 = document.querySelector('input[name="q3"]:checked');
+        let score = 0;
+
+        if (q1 && q1.value == "a") {
+            score++;
+        }
+        if (q2 && q2.value == "a") {
+            score++;
+        }
+        if (q3 && q3.value == "a") {
+            score++;
+        }
+
+        //---------- Animate line updation-------------
+        let totalQuestions = 3;
+        let percentage = (score / totalQuestions) * 100;
+        line.style.width = percentage + "%";
+
+        if (score > 0) {
+            document.getElementById("SCore").innerHTML = `<h5 id="SCore">Your SCore is :${score} ✅ 👌</h5>`
+        }
+        else {
+            document.getElementById("SCore").innerHTML = `<h5 id="SCore">Your SCore is :${score} ❌🤷‍♂️</h5>`
+        }
+    }
+
+
+    let playerScore = document.getElementById("player-Score");
+    let points = document.getElementById('points');
+    let Operator = document.getElementById("Operator");
+
+    function PlayerScore() {
+        Op = Operator.value;
+        Ps = Number(playerScore.value);
+        pits = Number(points.value);
+        switch (Op) {
+            case "+":
+                ans = Ps + pits;
+                break;
+            case "-":
+                ans = Ps - pits;
+                break;
+            case "*":
+                ans = Ps * pits;
+                break;
+            case "/":
+                ans = Ps / pits;
+                break;
+            case "%":
+                ans = Ps % pits;
+                break;
+            default:
+                ans = "Enter Your Colculate Method 🤦‍♂️"
+        }
+        document.getElementById("playerScore").innerText = ans;
+    }
+
+
+
+
+
+
+</script>
+
+</html>
